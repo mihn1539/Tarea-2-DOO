@@ -3,10 +3,10 @@ import java.time.Instant;
 import java.util.ArrayList;
 
 public class Invitacion {
-    private int hora;
+    private Instant hora;
     private ArrayList<Invitable> invitados = new ArrayList<>();
 
-    public Invitacion(int h){
+    public Invitacion(Instant h){
         this.hora = h;
     }
 

@@ -17,7 +17,8 @@ public class Empleado implements Invitable {
         this.invitacion = null;
     }
 
-    void invitar(Invitacion inv){
+    @Override
+    public void invitar(Invitacion inv) {
         this.invitacion = inv;
         inv.agregarInvitado(this);
     }
