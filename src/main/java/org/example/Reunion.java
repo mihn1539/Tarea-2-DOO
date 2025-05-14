@@ -4,7 +4,7 @@ import java.util.Date;
 import java.time.Instant;
 import java.time.Duration;
 
-public class Reunion {
+public abstract class Reunion {
     private Date fecha;
     private Instant horaPrevista;
     private Duration duracionPrevista;
@@ -13,12 +13,13 @@ public class Reunion {
     private Asistencia asistencia;
     private Invitacion invitados;
     private ArrayList<Notas> notas;
+    private String organizador;
 
-    public Reunion(Date fecha, Instant hora, Duration duracion){
+    public Reunion(Date fecha, Instant hora, Duration duracion, Empleado emp){
         this.fecha = fecha;
         this.horaPrevista = hora;
         this.duracionPrevista = duracion;
-        iniciar();
+        this.organizador = emp.getId();
     }
 
     public ArrayList obtenerAsistencia(){

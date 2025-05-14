@@ -1,3 +1,4 @@
+package org.example;
 import java.time.Instant;
 import java.util.ArrayList;
 
@@ -9,7 +10,7 @@ public class Invitacion {
         this.hora = h;
     }
 
-    public int sss(){
+    public int cantidadInvitados(){
         return invitados.size();
     }
 
