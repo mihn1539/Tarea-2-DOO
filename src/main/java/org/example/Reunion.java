@@ -11,7 +11,7 @@ public abstract class Reunion {
     private Instant horaInicio;
     private Instant horaFin;
     private Asistencia asistencia;
-    private Invitacion invitados;
+    public Invitacion invitados;
     private ArrayList<Notas> notas;
     private String organizador;
 

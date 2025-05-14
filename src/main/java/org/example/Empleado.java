@@ -17,6 +17,10 @@ public class Empleado implements Invitable {
         this.invitacion = null;
     }
 
+    public String getId(){
+        return id;
+    }
+
     @Override
     public void invitar(Invitacion inv) {
         this.invitacion = inv;
