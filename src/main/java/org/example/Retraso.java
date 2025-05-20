@@ -3,7 +3,7 @@ import java.time.Instant;
 import java.util.ArrayList;
 
 public class Retraso extends Asistencia {
-    private ArrayList<Instant> horaAtrasos = new ArrayList<>();
+    private ArrayList<Instant> horaAtraso = new ArrayList<>();
 
     public Retraso(Reunion reunion) {
         super(reunion);
@@ -11,6 +11,6 @@ public class Retraso extends Asistencia {
 
     public void añadirAsistente(Empleado emp, Instant hora) {
         super.añadirAsistente(emp);
-        horaAtrasos.add(hora);
+        horaAtraso.add(hora);
     }
 }
