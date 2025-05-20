@@ -23,8 +23,7 @@ public class Empleado implements Invitable {
 
     @Override
     public void invitar(Invitacion inv) {
-        this.invitacion = inv;
-        inv.agregarInvitado(this);
+        inv.getReunion().invitaciones.add(inv);
         System.out.println("Invitacion enviada a " + nombre + " " + apellidos + " (" + correo + ").");
     }
 
