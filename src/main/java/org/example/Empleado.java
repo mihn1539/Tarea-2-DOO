@@ -25,5 +25,6 @@ public class Empleado implements Invitable {
     public void invitar(Invitacion inv) {
         this.invitacion = inv;
         inv.agregarInvitado(this);
+        System.out.println("Invitacion enviada a " + nombre + " " + apellidos + " (" + correo + ").");
     }
 }
