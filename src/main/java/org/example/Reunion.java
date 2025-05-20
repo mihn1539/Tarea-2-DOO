@@ -11,7 +11,7 @@ public abstract class Reunion {
     private Instant horaInicio;
     private Instant horaFin;
     private Asistencia asistencia;
-    public Invitacion invitados;
+    public ArrayList<Invitacion> invitaciones;
     private ArrayList<Notas> notas;
     private String organizador;
 
@@ -20,6 +20,7 @@ public abstract class Reunion {
         this.horaPrevista = hora;
         this.duracionPrevista = duracion;
         this.organizador = emp.getId();
+        invitaciones = new ArrayList<>();
     }
 
     public ArrayList obtenerAsistencia(){

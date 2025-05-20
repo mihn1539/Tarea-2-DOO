@@ -11,7 +11,7 @@ public class Asistencia  {
     }
 
     public void verificarAsistente(Empleado emp) {
-        if(emp.invitacion.toString().equals(reunion.invitados.toString())) {
+        if(emp.invitacion.toString().equals(reunion.invitaciones.toString())) {
             asist.add(emp);
         }else{
             System.out.println("No tiene invitación valida para esta reunion.");
