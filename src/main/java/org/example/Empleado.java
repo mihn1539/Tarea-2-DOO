@@ -26,7 +26,7 @@ public class Empleado implements Invitable {
 
     @Override
     public void invitar(Reunion reunion) {
-        Invitacion inv = new Invitacion(Instant.now(),this,reunion);
+        Invitacion inv = new Invitacion(this, reunion);
         inv.getReunion().invitaciones.add(inv);
         System.out.println("Invitacion enviada a " + nombre + " " + apellidos + " (" + correo + ").");
     }

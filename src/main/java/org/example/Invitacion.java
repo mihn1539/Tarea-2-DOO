@@ -7,8 +7,8 @@ public class Invitacion {
     private Invitable invitado;
     private Reunion reunion;
 
-    public Invitacion(Instant h, Invitable invitado, Reunion reunion) {
-        this.hora = h;
+    public Invitacion(Invitable invitado, Reunion reunion) {
+        this.hora = Instant.now();
         this.invitado = invitado;
         this.reunion = reunion;
     }
