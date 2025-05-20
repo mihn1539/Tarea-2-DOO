@@ -4,17 +4,28 @@ import java.util.ArrayList;
 
 public class Invitacion {
     private Instant hora;
-    private ArrayList<Invitable> invitados = new ArrayList<>();
+    private Empleado empleado;
+    private Reunion reunion;
 
-    public Invitacion(Instant h){
+    public Invitacion(Instant h, Empleado emp, Reunion reunion) {
         this.hora = h;
+        this.empleado = emp;
+        this.reunion = reunion;
     }
 
-    public int cantidadInvitados(){
-        return invitados.size();
+    public Empleado getEmpleado() {
+        return empleado;
     }
 
-    public void agregarInvitado(Invitable e){
-        invitados.add(e);
+    public Reunion getReunion() {
+        return reunion;
+    }
+
+    public Instant getHora() {
+        return hora;
+    }
+
+    public void setEmpleado(Empleado emp){
+        empleado = emp;
     }
 }
