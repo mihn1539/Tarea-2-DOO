@@ -1,5 +1,4 @@
 package org.example;
-
 import java.time.Instant;
 
 public class Notas {
