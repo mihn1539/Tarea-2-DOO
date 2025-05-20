@@ -62,4 +62,16 @@ public abstract class Reunion {
     public void finalizar(){
         horaFin = Instant.now();
     }
+
+    public void unirseReunion(Empleado emp){
+        if(emp.invitacion.getReunion().equals(this)){
+            if(this.horaPrevista.compareTo(Instant.now()) > 0){
+                retraso.añadirAsistente(emp,Instant.now());
+            }else{
+                asistencia.añadirAsistente(emp);
+            }
+        }else {
+            System.out.println("No tiene la invitacion pertinente a esta reunion.");
+        }
+    }
 }

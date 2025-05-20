@@ -23,6 +23,7 @@ public class Departamento implements Invitable{
         for (int i = 0; i < obtenerCantidadEmpleados();i++){
             Empleado emp = empleados.get(i);
             Invitacion inv = new Invitacion(emp, reunion);
+            emp.invitacion = inv;
             inv.getReunion().invitaciones.add(inv);
             System.out.println("Invitacion enviada a " + emp.getNombre() + " " + emp.getApellidos() + " (" + emp.getCorreo() + ").");
         }
