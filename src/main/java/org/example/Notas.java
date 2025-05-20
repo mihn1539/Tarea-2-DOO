@@ -6,9 +6,9 @@ public class Notas {
     private String nota;
     private Instant horaNota;
 
-    public Notas(String contenido, Instant hora){
+    public Notas(String contenido){
         this.nota = contenido;
-        this.horaNota = hora;
+        this.horaNota = Instant.now();
     }
 
     public String getNota() {
@@ -17,5 +17,10 @@ public class Notas {
 
     public Instant getHoraNota(){
         return horaNota;
+    }
+
+    @Override
+    public String toString() {
+        return "(" + horaNota + ") " + nota;
     }
 }

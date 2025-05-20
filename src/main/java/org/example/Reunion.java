@@ -51,7 +51,7 @@ public abstract class Reunion {
     }
 
     public void crearNota(String nota){
-        Notas n = new Notas(nota, Instant.now());
+        Notas n = new Notas(nota);
         notas.add(n);
     }
 
