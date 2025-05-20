@@ -1,4 +1,5 @@
 package org.example;
+import java.time.Instant;
 import java.util.ArrayList;
 
 public class Departamento implements Invitable{
@@ -18,10 +19,10 @@ public class Departamento implements Invitable{
     }
 
     @Override
-    public void invitar(Invitacion inv) {
+    public void invitar(Reunion reunion) {
         for (int i = 0; i < obtenerCantidadEmpleados();i++){
             Empleado emp = empleados.get(i);
-            inv.setEmpleado(emp);
+            Invitacion inv = new Invitacion(Instant.now(),emp,reunion);
             inv.getReunion().invitaciones.add(inv);
             System.out.println("Invitacion enviada a " + emp.getNombre() + " " + emp.getApellidos() + " (" + emp.getCorreo() + ").");
         }

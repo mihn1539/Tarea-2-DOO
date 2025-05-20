@@ -4,17 +4,17 @@ import java.util.ArrayList;
 
 public class Invitacion {
     private Instant hora;
-    private Empleado empleado;
+    private Invitable invitado;
     private Reunion reunion;
 
-    public Invitacion(Instant h, Empleado emp, Reunion reunion) {
+    public Invitacion(Instant h, Invitable invitado, Reunion reunion) {
         this.hora = h;
-        this.empleado = emp;
+        this.invitado = invitado;
         this.reunion = reunion;
     }
 
-    public Empleado getEmpleado() {
-        return empleado;
+    public Invitable getInvitado() {
+        return invitado;
     }
 
     public Reunion getReunion() {
@@ -25,7 +25,7 @@ public class Invitacion {
         return hora;
     }
 
-    public void setEmpleado(Empleado emp){
-        empleado = emp;
+    public void setEmpleado(Invitable invi){
+        invitado = invi;
     }
 }

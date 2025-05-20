@@ -1,4 +1,7 @@
 package org.example;
+
+import java.time.Instant;
+
 public class Empleado implements Invitable {
     private String id;
     private String apellidos;
@@ -22,7 +25,8 @@ public class Empleado implements Invitable {
     }
 
     @Override
-    public void invitar(Invitacion inv) {
+    public void invitar(Reunion reunion) {
+        Invitacion inv = new Invitacion(Instant.now(),this,reunion);
         inv.getReunion().invitaciones.add(inv);
         System.out.println("Invitacion enviada a " + nombre + " " + apellidos + " (" + correo + ").");
     }
