@@ -1,11 +1,11 @@
 package org.example;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.time.Instant;
 import java.time.Duration;
 
 public abstract class Reunion {
-    private Date fecha;
+    private LocalDate fecha;
     private Instant horaPrevista;
     private Duration duracionPrevista;
     private Instant horaInicio;
@@ -16,8 +16,8 @@ public abstract class Reunion {
     private ArrayList<Notas> notas;
     private String organizador;
 
-    public Reunion(Date fecha, Instant hora, Duration duracion, Empleado emp){
-        this.fecha = fecha;
+    public Reunion(Instant hora, Duration duracion, Empleado emp){
+        this.fecha = LocalDate.now();
         this.horaPrevista = hora;
         this.duracionPrevista = duracion;
         this.organizador = emp.getId();
@@ -47,7 +47,9 @@ public abstract class Reunion {
     }
 
     public float calcularTiempoReal(){
-        return 0;
+        Duration duration = Duration.between(horaInicio, horaFin);
+        long tiempoReal = duration.getNano();
+        return (float)tiempoReal;
     }
 
     public void crearNota(String nota){
@@ -64,13 +66,13 @@ public abstract class Reunion {
     }
 
     public void unirseReunion(Empleado emp){
-        if(emp.invitacion.getReunion().equals(this)){
-            if(this.horaPrevista.compareTo(Instant.now()) > 0){
-                retraso.añadirAsistente(emp,Instant.now());
-            }else{
-                asistencia.añadirAsistente(emp);
+        if (emp.invitacion.getReunion().equals(this)){
+            if (Instant.now().isAfter(horaPrevista)){
+                retraso.agregarAsistente(emp);
+            } else {
+                asistencia.agregarAsistente(emp);
             }
-        }else {
+        } else {
             System.out.println("No tiene la invitacion pertinente a esta reunion.");
         }
     }
