@@ -1,7 +1,7 @@
 package org.example;
 import java.util.ArrayList;
 
-public class Departamento {
+public class Departamento implements Invitable{
     private String nombre;
     private ArrayList<Empleado> empleados = new ArrayList<>();
 
@@ -17,4 +17,12 @@ public class Departamento {
         empleados.add(emp);
     }
 
+    @Override
+    public void invitar(Invitacion inv) {
+        for (int i = 0; i < obtenerCantidadEmpleados();i++){
+            Empleado emp = empleados.get(i);
+            inv.agregarInvitado(emp);
+            System.out.println("Invitacion enviada a " + emp.getNombre() + " " + emp.getApellidos() + " (" + emp.getCorreo() + ").");
+        }
+    }
 }

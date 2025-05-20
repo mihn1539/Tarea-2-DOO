@@ -27,4 +27,17 @@ public class Empleado implements Invitable {
         inv.agregarInvitado(this);
         System.out.println("Invitacion enviada a " + nombre + " " + apellidos + " (" + correo + ").");
     }
+
+    public String getApellidos(){
+        return apellidos;
+    }
+
+    public String getNombre(){
+        return nombre;
+    }
+
+    public String getCorreo(){
+        return correo;
+    }
+
 }
