@@ -12,6 +12,10 @@ public class ReunionVirtual extends Reunion {
         this.enlace = enlace;
     }
 
+    public String getUbicacion() {
+        return "Enlace: " + enlace;
+    }
+
     public String getEnlace() {
         return "Enlace: " + enlace;
     }

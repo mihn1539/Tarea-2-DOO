@@ -12,6 +12,10 @@ public class ReunionPresencial extends Reunion {
         this.sala = sala;
     }
 
+    public String getUbicacion() {
+        return "Sala: " + sala;
+    }
+
     public String getSala() {
         return "Sala: " + sala;
     }

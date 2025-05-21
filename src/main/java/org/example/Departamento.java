@@ -10,12 +10,17 @@ public class Departamento implements Invitable{
         this.nombre = n;
     }
 
+    public void agregarEmpleado(Empleado emp){
+        empleados.add(emp);
+        emp.setDepartamento(this);
+    }
+
     public int obtenerCantidadEmpleados(){
         return empleados.size();
     }
 
-    public void agregarEmpleado(Empleado emp){
-        empleados.add(emp);
+    public String getNombre(){
+        return nombre;
     }
 
     @Override
@@ -24,8 +29,7 @@ public class Departamento implements Invitable{
             Empleado emp = empleados.get(i);
             Invitacion inv = new Invitacion(emp, reunion);
             emp.invitacion = inv;
-            inv.getReunion().invitaciones.add(inv);
-            System.out.println("Invitacion enviada a " + emp.getNombre() + " " + emp.getApellidos() + " (" + emp.getCorreo() + ").");
+            reunion.invitaciones.add(inv);
         }
     }
 }

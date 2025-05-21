@@ -17,7 +17,6 @@ public class Externos implements Invitable {
     public void invitar(Reunion reunion) {
         Invitacion inv = new Invitacion(this, reunion);
         this.invitacion = inv;
-        inv.getReunion().invitaciones.add(inv);
-        System.out.println("Invitacion enviada a externo " + nombre + " " + apellidos + " (" + correo + ").");
+        reunion.invitaciones.add(inv);
     }
 }

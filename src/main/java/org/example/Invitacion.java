@@ -8,9 +8,9 @@ public class Invitacion {
     private Reunion reunion;
 
     public Invitacion(Invitable invitado, Reunion reunion) {
-        this.hora = Instant.now();
         this.invitado = invitado;
         this.reunion = reunion;
+        this.hora = reunion.getHoraPrevista();
     }
 
     public Invitable getInvitado() {
@@ -27,5 +27,9 @@ public class Invitacion {
 
     public void setEmpleado(Invitable invi){
         invitado = invi;
+    }
+
+    public String toString(){
+        return "Invitación a reunión organizada por:\n" + reunion.getOrganizador() + "\nPrevista para las: " + getHora() + "\n" + reunion.getUbicacion();
     }
 }
