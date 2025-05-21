@@ -2,7 +2,7 @@ package org.example;
 import java.util.ArrayList;
 
 public class Asistencia  {
-    private ArrayList<Empleado> asist;
+    private ArrayList<Invitable> asist;
     public Reunion reunion;
 
 
@@ -13,5 +13,9 @@ public class Asistencia  {
 
     public void añadirAsistente(Empleado emp) {
         asist.add(emp);
+    }
+
+    public ArrayList obtenerAsistencia(){
+        return asist;
     }
 }

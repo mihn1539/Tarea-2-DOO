@@ -27,23 +27,51 @@ public abstract class Reunion {
     }
 
     public ArrayList obtenerAsistencia(){
-        return null;
+        ArrayList<Object> asist = new ArrayList<>();
+        for(Object e : asistencia.obtenerAsistencia()){
+            asist.add(e);
+        }
+        for(Object e : retraso.obtenerAsistencia()){
+            asist.add(e);
+        }
+        return asist;
     }
 
     public ArrayList obtenerAusencias(){
-        return null;
+        ArrayList<Invitable> ausencias = new ArrayList<>();
+        for(Invitacion i : invitaciones){
+            Boolean asistio = false;
+            for(Object e : asistencia.obtenerAsistencia()){
+                if(i.getInvitado().equals(e)){
+                    asistio = true;
+                    break;
+                }
+            }
+            if(!asistio) {
+                for (Object e : retraso.obtenerAsistencia()) {
+                    if (i.getInvitado().equals(e)) {
+                        asistio = true;
+                        break;
+                    }
+                }
+            }
+            if(!asistio){
+                ausencias.add(i.getInvitado());
+            }
+        }
+        return ausencias;
     }
 
     public ArrayList obtenerRetrasos(){
-        return null;
+        return retraso.obtenerAsistencia();
     }
 
     public int obtenerTotalAsistencia(){
-        return 0;
+        return obtenerAsistencia().size();
     }
 
     public float obtenerPorcentajeAsistencia(){
-        return 0;
+        return (float) (100 * obtenerTotalAsistencia()) / invitaciones.size();
     }
 
     public float calcularTiempoReal(){
@@ -65,7 +93,7 @@ public abstract class Reunion {
 
     public void unirseReunion(Empleado emp){
         if(emp.invitacion.getReunion().equals(this)){
-            if(this.horaPrevista.compareTo(Instant.now()) > 0){
+            if(this.horaInicio.compareTo(Instant.now()) > 0){
                 retraso.añadirAsistente(emp,Instant.now());
             }else{
                 asistencia.añadirAsistente(emp);
