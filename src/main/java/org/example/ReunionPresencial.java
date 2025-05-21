@@ -11,8 +11,9 @@ public class ReunionPresencial extends Reunion {
         this.sala = sala;
     }
 
-    public String getSala() {
-        return sala;
+    @Override
+    public String getUbicacion() {
+        return "Sala: " + sala;
     }
 
     public void setSala(String sala) {

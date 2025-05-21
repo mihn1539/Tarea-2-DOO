@@ -11,8 +11,9 @@ public class ReunionVirtual extends Reunion {
         this.enlace = enlace;
     }
 
-    public String getEnlace() {
-        return enlace;
+    @Override
+    public String getUbicacion() {
+        return "Enlace: " + enlace;
     }
 
     public void setEnlace(String enlace) {

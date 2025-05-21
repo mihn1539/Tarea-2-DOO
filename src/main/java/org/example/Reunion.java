@@ -63,6 +63,8 @@ public abstract class Reunion {
         horaFin = Instant.now();
     }
 
+    public abstract String getUbicacion();
+
     public void unirseReunion(Empleado emp){
         if (emp.invitacion.getReunion().equals(this)){
             if (Instant.now().isAfter(horaPrevista)){
