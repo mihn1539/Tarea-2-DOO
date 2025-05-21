@@ -1,27 +1,25 @@
 package org.example;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.time.Instant;
 import java.time.Duration;
 
 public abstract class Reunion {
-    private LocalDate fecha;
-    private Instant horaPrevista;
-    private Duration duracionPrevista;
-    private Instant horaInicio;
-    private Instant horaFin;
-    private Asistencia asistencia;
-    private Retraso retraso;
-    public ArrayList<Invitacion> invitaciones;
-    private ArrayList<Notas> notas;
-    private String organizador;
+    protected Instant horaPrevista;
+    protected Duration duracionPrevista;
+    protected Asistencia asistencia;
+    protected Retraso retraso;
+
+    protected Instant horaInicio;
+    protected Instant horaFin;
+
+    protected ArrayList<Notas> notas;
+    protected Empleado organizador;
+    public ArrayList<Invitacion> invitaciones = new ArrayList<>();
 
     public Reunion(Instant hora, Duration duracion, Empleado emp){
-        this.fecha = LocalDate.now();
         this.horaPrevista = hora;
         this.duracionPrevista = duracion;
-        this.organizador = emp.getId();
-        invitaciones = new ArrayList<>();
+        this.organizador = emp;
         this.asistencia = new Asistencia(this);
         this.retraso = new Retraso(this);
     }
@@ -48,7 +46,7 @@ public abstract class Reunion {
 
     public float calcularTiempoReal(){
         Duration duration = Duration.between(horaInicio, horaFin);
-        long tiempoReal = duration.getNano();
+        long tiempoReal = duration.getSeconds();
         return (float)tiempoReal;
     }
 
