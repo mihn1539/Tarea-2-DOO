@@ -14,13 +14,13 @@ public abstract class Reunion {
     private Retraso retraso;
     public ArrayList<Invitacion> invitaciones;
     private ArrayList<Notas> notas;
-    private Empleado organizador;
+    private String organizador;
 
     public Reunion(Date fecha, Instant hora, Duration duracion, Empleado emp){
         this.fecha = fecha;
         this.horaPrevista = hora;
         this.duracionPrevista = duracion;
-        this.organizador = emp;
+        this.organizador = emp.getId();
         invitaciones = new ArrayList<>();
         this.asistencia = new Asistencia(this);
         this.retraso = new Retraso(this);
@@ -61,16 +61,6 @@ public abstract class Reunion {
 
     public void finalizar(){
         horaFin = Instant.now();
-    }
-
-    public Instant getHoraPrevista(){
-        return horaPrevista;
-    }
-
-    public abstract String getUbicacion();
-
-    public String getOrganizador(){
-        return organizador.toString();
     }
 
     public void unirseReunion(Empleado emp){
