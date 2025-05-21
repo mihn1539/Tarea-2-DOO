@@ -63,6 +63,7 @@ public abstract class Reunion {
     }
 
     public ArrayList obtenerRetrasos(){
+
         return retraso.obtenerAsistencia();
     }
 
