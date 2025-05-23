@@ -5,14 +5,13 @@ public class Asistencia  {
     public ArrayList<Invitado> asista;
     public Reunion reunion;
 
-
     public Asistencia(Reunion reunion) {
         this.reunion = reunion;
         asista = new ArrayList<>();
     }
 
-    public void agregarAsistente(Invitado invitado) {
-        asista.add(invitado);
+    public void agregarAsistente(Invitado inv) {
+        asista.add(inv);
     }
 
     public ArrayList obtenerAsistencia(){
@@ -21,10 +20,14 @@ public class Asistencia  {
 
     @Override
     public String toString() {
-        String f = "Lista de asistencia: \n";
-        for (int i = 0; i < asista.size(); i++) {
-            f += asista.get(i).toString() + "\n";
+        String result = "Lista de asistencia: \n";
+        if (asista.isEmpty()) {
+            result += "- No se registró ninguna asistencia.\n";
+        } else {
+            for (Invitado inv : asista) {
+                result += "- " + inv.getNombreCompleto() + ". Correo: " + inv.getCorreo() + ".\n";
+            }
         }
-        return f;
+        return result;
     }
 }

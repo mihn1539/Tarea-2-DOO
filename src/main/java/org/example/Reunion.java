@@ -1,4 +1,5 @@
 package org.example;
+import java.io.*;
 import java.util.ArrayList;
 import java.time.Instant;
 import java.time.Duration;
@@ -26,12 +27,12 @@ public abstract class Reunion {
         this.tipo = tipo;
     }
 
-    public void unirseReunion(Invitado invitado) {
-        if (invitado.invitacion.getReunion().equals(this)) {
+    public void unirseReunion(Invitado inv) {
+        if (inv.invitacion.getReunion().equals(this)) {
             if (Instant.now().isAfter(horaPrevista)) {
-                retraso.agregarAsistente(invitado);
+                retraso.agregarAsistente(inv);
             } else {
-                asistencia.agregarAsistente(invitado);
+                asistencia.agregarAsistente(inv);
             }
         } else {
             System.out.println("No tiene la invitacion pertinente a esta reunion.");
@@ -62,14 +63,14 @@ public abstract class Reunion {
     public ArrayList obtenerAusencias(){
         ArrayList<Invitable> ausencias = new ArrayList<>();
         for(Invitacion i : invitaciones){
-            Boolean asistio = false;
-            for(Object e : asistencia.obtenerAsistencia()){
-                if(i.getInvitado().equals(e)){
+            boolean asistio = false;
+            for (Object e : asistencia.obtenerAsistencia()){
+                if (i.getInvitado().equals(e)){
                     asistio = true;
                     break;
                 }
             }
-            if(!asistio) {
+            if (!asistio) {
                 for (Object e : retraso.obtenerAsistencia()) {
                     if (i.getInvitado().equals(e)) {
                         asistio = true;
@@ -77,7 +78,7 @@ public abstract class Reunion {
                     }
                 }
             }
-            if(!asistio){
+            if (!asistio){
                 ausencias.add(i.getInvitado());
             }
         }
@@ -122,7 +123,43 @@ public abstract class Reunion {
         return tipo;
     }
 
-    public String getOrganizador(){
+    public String getOrganizador() {
         return organizador.toString();
+    }
+
+    @Override
+    public String toString() {
+        String result = "======= INFORME DE REUNION =======\n";
+
+        result += "\nTipo de reunion: " + getTipo() + ".\n";
+        result += "Organizador: " + organizador.getNombreCompleto() + " (correo: " + organizador.getCorreo() + ").\n";
+        result += getUbicacion() + ".\n\n";
+        result += "Fecha y hora programada: " + getHoraPrevista() + ".\n";
+        result += "Hora de inicio: " + getHoraInicio() + ".\n";
+        result += "Hora de termino: " + getHoraFin() + ".\n";
+        result += "Duracion total: " + calcularTiempoReal() + "minutos.\n\n";
+
+        result += asistencia.toString();
+        result += retraso.toString();
+
+        result += "\nNotas:\n";
+        if (notas.isEmpty()) {
+            result += "- No se agregaron notas a la reunion.\n";
+        } else {
+            for (Notas n : notas) {
+                result += "- " + n.toString() + ".\n";
+            }
+        }
+
+        return result;
+    }
+
+    public void generarInforme(String archivo) {
+        try {
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(archivo)));
+            writer.write(this.toString());
+        } catch (IOException e) {
+            System.err.println("Error al escribir el informe: " + e.getMessage());
+        }
     }
 }
