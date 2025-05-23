@@ -6,8 +6,8 @@ import java.time.Instant;
 public class ReunionVirtual extends Reunion {
     private String enlace;
 
-    public ReunionVirtual(Instant hora, Duration duracion, Empleado emp, String enlace) {
-        super(hora, duracion, emp);
+    public ReunionVirtual(Instant hora, Duration duracion, Empleado emp, String enlace, tipoReunion tipo) {
+        super(hora, duracion, emp, tipo);
         this.enlace = enlace;
     }
 

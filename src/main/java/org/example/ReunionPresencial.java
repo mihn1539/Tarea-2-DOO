@@ -6,8 +6,8 @@ import java.time.Instant;
 public class ReunionPresencial extends Reunion {
     private String sala;
 
-    public ReunionPresencial(Instant hora, Duration duracion, Empleado emp, String sala) {
-        super(hora, duracion, emp);
+    public ReunionPresencial(Instant hora, Duration duracion, Empleado emp, String sala, tipoReunion tipo) {
+        super(hora, duracion, emp, tipo);
         this.sala = sala;
     }
 
