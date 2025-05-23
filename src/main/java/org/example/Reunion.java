@@ -2,7 +2,6 @@ package org.example;
 import java.util.ArrayList;
 import java.time.Instant;
 import java.time.Duration;
-import java.util.Date;
 
 public abstract class Reunion {
     protected Instant horaPrevista;
@@ -121,5 +120,9 @@ public abstract class Reunion {
 
     public tipoReunion getTipo() {
         return tipo;
+    }
+
+    public String getOrganizador(){
+        return organizador.toString();
     }
 }

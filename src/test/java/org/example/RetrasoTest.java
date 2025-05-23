@@ -5,7 +5,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
-import java.util.Date;
 import java.time.Instant;
 
 
@@ -23,7 +22,7 @@ class RetrasoTest {
         dep = new Departamento("Departamento de Ingeniería Civil Informática");
         emp = new Empleado("14X14", "Perez Rosales", "Vicente", "viceperezr@empresa.com",dep);
         org = new Empleado("94X12","Fuentealba Meridio","Leonardo","leonfuentealbam@empresa.icinf.com",dep);
-        reu = new ReunionPresencial(new Date(),Instant.ofEpochMilli(100),Duration.ofHours(1),org,"A-9",tipoReunion.TECNICA);
+        reu = new ReunionPresencial(Instant.ofEpochMilli(100),Duration.ofHours(1),org,"A-9",tipoReunion.TECNICA);
         retraso = reu.retraso;
     }
 

@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,7 +24,7 @@ class ExternosTest {
         instant = Instant.ofEpochMilli(100);
         dep = new Departamento("Departamento de Ingeniería Civil Informática");
         org = new Empleado("94X12","Fuentealba Meridio","Leonardo","leonfuentealbam@empresa.icinf.com",dep);
-        reunion = new ReunionPresencial(new Date(),instant,duration,org,"A-9",tipoReunion.TECNICA);
+        reunion = new ReunionPresencial(instant,duration,org,"A-9",tipoReunion.TECNICA);
     }
 
     @Test
