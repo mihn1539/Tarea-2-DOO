@@ -21,7 +21,7 @@ class AsistenciaTest {
         dep = new Departamento("Departamento de Ingeniería Civil Informática");
         emp = new Empleado("14X14", "Perez Rosales", "Vicente", "viceperezr@empresa.com",dep);
         org = new Empleado("94X12","Fuentealba Meridio","Leonardo","leonfuentealbam@empresa.icinf.com",dep);
-        reu = new ReunionPresencial(new Date(), Instant.ofEpochMilli(100), Duration.ofHours(1),emp,"A-9");
+        reu = new ReunionPresencial(new Date(), Instant.ofEpochMilli(100), Duration.ofHours(1),emp,"A-9",tipoReunion.TECNICA);
         asistencia = reu.asistencia;
     }
 
@@ -32,7 +32,7 @@ class AsistenciaTest {
     @Test
     void añadirAsistente() {
         int i = asistencia.asist.size();
-        asistencia.añadirAsistente(org);
+        asistencia.agregarAsistente(org);
         assertEquals(org.toString(),asistencia.asist.get(i).toString());
     }
 

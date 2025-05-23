@@ -17,6 +17,10 @@ public class Departamento implements Invitable{
         empleados.add(emp);
     }
 
+    public String getNombre(){
+        return nombre;
+    }
+
     @Override
     public void invitar(Reunion reunion) {
         for (int i = 0; i < obtenerCantidadEmpleados();i++){

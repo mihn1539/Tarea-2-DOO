@@ -2,12 +2,13 @@ package org.example;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Date;
 
 public class ReunionPresencial extends Reunion {
     private String sala;
 
-    public ReunionPresencial(Instant hora, Duration duracion, Empleado emp, String sala, tipoReunion tipo) {
-        super(hora, duracion, emp, tipo);
+    public ReunionPresencial(Date dia, Instant hora, Duration duracion, Empleado emp, String sala, tipoReunion tipo) {
+        super(dia, hora, duracion, emp, tipo);
         this.sala = sala;
     }
 

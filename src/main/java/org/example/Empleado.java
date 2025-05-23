@@ -44,4 +44,17 @@ public class Empleado implements Invitable {
         return correo;
     }
 
+    public String getDepartamento(){
+        return dept.getNombre();
+    }
+
+    public void setDepartamento(Departamento dep){
+        this.dept = dep;
+    }
+
+    @Override
+    public String toString(){
+        return "Empleado: " + getNombre() +" "+ getApellidos() + "\nID: " + getId() + "\nCorreo: " + getCorreo() + "\nDepartamento: " + getDepartamento();
+    }
+
 }

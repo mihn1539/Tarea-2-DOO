@@ -25,7 +25,7 @@ class ExternosTest {
         instant = Instant.ofEpochMilli(100);
         dep = new Departamento("Departamento de Ingeniería Civil Informática");
         org = new Empleado("94X12","Fuentealba Meridio","Leonardo","leonfuentealbam@empresa.icinf.com",dep);
-        reunion = new ReunionPresencial(new Date(),instant,duration,org,"A-9");
+        reunion = new ReunionPresencial(new Date(),instant,duration,org,"A-9",tipoReunion.TECNICA);
     }
 
     @Test

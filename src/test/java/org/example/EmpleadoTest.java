@@ -25,7 +25,7 @@ class EmpleadoTest {
         dep = new Departamento("Departamento de Ingeniería Civil Informática");
         emp = new Empleado("14X14", "Perez Rosales", "Vicente", "viceperezr@empresa.com",dep);
         org = new Empleado("94X12","Fuentealba Meridio","Leonardo","leonfuentealbam@empresa.icinf.com",dep);
-        reunion = new ReunionPresencial(new Date(),instant,duration,org,"A-9");
+        reunion = new ReunionPresencial(new Date(),instant,duration,org,"A-9",tipoReunion.TECNICA);
     }
 
     @Test

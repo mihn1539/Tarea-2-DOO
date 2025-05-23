@@ -25,7 +25,11 @@ public class Invitacion {
         return hora;
     }
 
-    public void setEmpleado(Invitable invi){
+    @Override
+    public String toString() {
+        return "Invitación a reunión organizada por:\n" + reunion.getOrganizador() + "\nPrevista para las: " + getHora() + "\n" + reunion.getUbicacion();
+    }
+    public void setEmpleado(Invitable invi) {
         invitado = invi;
     }
 }
