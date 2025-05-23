@@ -7,10 +7,8 @@ import org.junit.jupiter.api.Test;
 import java.time.Duration;
 import java.time.Instant;
 
-
 import static org.junit.jupiter.api.Assertions.*;
-
-class ReunionPresencialTest {
+class ReunionVirtualTest {
     private Reunion reunion;
     private Empleado emp;
     private Departamento dep;
@@ -25,7 +23,7 @@ class ReunionPresencialTest {
         dep = new Departamento("Departamento de Ingeniería Civil Informática");
         emp = new Empleado("14X14", "Perez Rosales", "Vicente", "viceperezr@empresa.com", dep);
         org = new Empleado("94X12", "Fuentealba Meridio", "Leonardo", "leonfuentealbam@empresa.icinf.com", dep);
-        reunion = new ReunionPresencial(instant, duration, org, "A-9", tipoReunion.TECNICA);
+        reunion = new ReunionVirtual(instant, duration, org, "www.teams.com/reunion", tipoReunion.TECNICA);
         emp.invitar(reunion);
     }
 
@@ -106,13 +104,3 @@ class ReunionPresencialTest {
         assertNotNull(reunion.getHoraFin());
     }
 }
-
-
-
-
-
-
-
-
-
-
