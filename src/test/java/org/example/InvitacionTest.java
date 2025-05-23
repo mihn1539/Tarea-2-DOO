@@ -10,13 +10,14 @@ import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class EmpleadoTest {
+class InvitacionTest {
     Duration duration;
     Instant instant;
     Empleado emp;
     Departamento dep;
     Empleado org;
     Reunion reunion;
+    Invitacion invitacion;
 
     @BeforeEach
     void setUp() {
@@ -26,17 +27,12 @@ class EmpleadoTest {
         emp = new Empleado("14X14", "Perez Rosales", "Vicente", "viceperezr@empresa.com",dep);
         org = new Empleado("94X12","Fuentealba Meridio","Leonardo","leonfuentealbam@empresa.icinf.com",dep);
         reunion = new ReunionPresencial(new Date(),instant,duration,org,"A-9");
-    }
-
-    @Test
-    void testInvitar(){
-        emp.invitar(reunion);
-        assertEquals("Invitación a reunión organizada por:\nEmpleado: Leonardo Fuentealba Meridio\nID: 94X12\nCorreo: leonfuentealbam@empresa.icinf.com\nDepartamento: Departamento de Ingeniería Civil Informática\nPrevista para las: 1970-01-01T00:00:00.100Z\nSala: A-9",emp.invitacion.toString());
+        invitacion = new Invitacion(emp,reunion);
     }
 
     @Test
     void testToString(){
-        assertEquals("Empleado: Vicente Perez Rosales\nID: 14X14\nCorreo: viceperezr@empresa.com\nDepartamento: Departamento de Ingeniería Civil Informática",emp.toString());
+        assertEquals("Invitación a reunión organizada por:\nEmpleado: Leonardo Fuentealba Meridio\nID: 94X12\nCorreo: leonfuentealbam@empresa.icinf.com\nDepartamento: Departamento de Ingeniería Civil Informática\nPrevista para las: 1970-01-01T00:00:00.100Z\nSala: A-9",invitacion.toString());
     }
 
     @AfterEach

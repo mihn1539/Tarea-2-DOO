@@ -11,16 +11,21 @@ import java.util.Date;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ExternosTest {
-    Duration duration = Duration.ofHours(1);
-    Instant instant = Instant.ofEpochMilli(100);
+    Duration duration;
+    Instant instant;
     Externos ext;
-    Departamento dep = new Departamento("Departamento de Ingeniería Civil Informática");
-    Empleado org = new Empleado("94X12","Fuentealba Meridio","Leonardo","leonfuentealbam@empresa.icinf.com",dep);
-    Reunion reunion = new ReunionPresencial(new Date(),instant,duration,org,"A-9");
+    Departamento dep;
+    Empleado org;
+    Reunion reunion;
 
     @BeforeEach
     void setUp() {
         ext = new Externos("Mujica Toledo", "Alberto", "alb.mujit@gmail.com");
+        duration = Duration.ofHours(1);
+        instant = Instant.ofEpochMilli(100);
+        dep = new Departamento("Departamento de Ingeniería Civil Informática");
+        org = new Empleado("94X12","Fuentealba Meridio","Leonardo","leonfuentealbam@empresa.icinf.com",dep);
+        reunion = new ReunionPresencial(new Date(),instant,duration,org,"A-9");
     }
 
     @Test
