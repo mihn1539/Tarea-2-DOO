@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Representa el registro de asistentes que llegaron tarde a una reunión.
- * Es heredada de la clase {@Link Asistencia}.
+ * Es heredada de la clase {@link Asistencia}.
  */
 public class Retraso extends Asistencia {
     /** Lista de horas en las que cada invitado se unió a la reunión, ordenadas cronológicamente.*/

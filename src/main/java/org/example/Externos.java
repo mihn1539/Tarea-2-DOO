@@ -3,7 +3,7 @@ package org.example;
 /**
  * Representa a una persona con la capacidad de ser invitada a una reunión.
  * Es ajena a una empresa.
- * Es heredada de la clase {@Link} Invitado} .
+ * Es heredada de la clase {@link Invitado} .
  */
 public class Externos extends Invitado {
 

@@ -3,7 +3,7 @@ package org.example;
 /**
  * Representa a un empleado de una empresa, el cual tiene sus datos personales e identificación única de la empresa.
  * Tiene la capacidad de ser invitado a reuniones.
- * Es heredada de la clase {@Link Invitado}.
+ * Es heredada de la clase {@link Invitado}.
  */
 
 public class Empleado extends Invitado {

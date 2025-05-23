@@ -2,7 +2,7 @@ package org.example;
 
 /**
  * Clase abstracta que representa a un invitado de una reunión.
- * Implementa la interfaz {@Link Invitable}.
+ * Implementa la interfaz {@link Invitable}.
  */
 public abstract class Invitado implements Invitable {
     /** Invitación asociada al invitado, si existe.*/
