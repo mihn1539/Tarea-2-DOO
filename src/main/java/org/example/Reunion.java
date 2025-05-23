@@ -48,24 +48,52 @@ public abstract class Reunion {
         notas.add(n);
     }
 
-    public ArrayList obtenerAsistencia() {
-        return null;
+    public ArrayList obtenerAsistencia(){
+        ArrayList<Object> asist = new ArrayList<>();
+        for(Object e : asistencia.obtenerAsistencia()){
+            asist.add(e);
+        }
+        for(Object e : retraso.obtenerAsistencia()){
+            asist.add(e);
+        }
+        return asist;
     }
 
-    public ArrayList obtenerAusencias() {
-        return null;
+    public ArrayList obtenerAusencias(){
+        ArrayList<Invitable> ausencias = new ArrayList<>();
+        for(Invitacion i : invitaciones){
+            Boolean asistio = false;
+            for(Object e : asistencia.obtenerAsistencia()){
+                if(i.getInvitado().equals(e)){
+                    asistio = true;
+                    break;
+                }
+            }
+            if(!asistio) {
+                for (Object e : retraso.obtenerAsistencia()) {
+                    if (i.getInvitado().equals(e)) {
+                        asistio = true;
+                        break;
+                    }
+                }
+            }
+            if(!asistio){
+                ausencias.add(i.getInvitado());
+            }
+        }
+        return ausencias;
     }
 
-    public ArrayList obtenerRetrasos() {
-        return null;
+    public ArrayList obtenerRetrasos(){
+        return retraso.obtenerAsistencia();
     }
 
-    public int obtenerTotalAsistencia() {
-        return 0;
+    public int obtenerTotalAsistencia(){
+        return obtenerAsistencia().size();
     }
 
-    public float obtenerPorcentajeAsistencia() {
-        return 0;
+    public float obtenerPorcentajeAsistencia(){
+        return (float) (100 * obtenerTotalAsistencia()) / invitaciones.size();
     }
 
     public void iniciar() {

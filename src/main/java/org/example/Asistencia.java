@@ -14,4 +14,8 @@ public class Asistencia  {
     public void agregarAsistente(Empleado emp) {
         asist.add(emp);
     }
+
+    public ArrayList obtenerAsistencia(){
+        return asist;
+    }
 }
