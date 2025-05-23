@@ -2,7 +2,7 @@ package org.example;
 import java.util.ArrayList;
 
 public class Asistencia  {
-    public ArrayList<Empleado> asist;
+    private ArrayList<Empleado> asist;
     public Reunion reunion;
 
 
@@ -11,16 +11,11 @@ public class Asistencia  {
         asist = new ArrayList<>();
     }
 
-    public void añadirAsistente(Empleado emp) {
+    public void agregarAsistente(Empleado emp) {
         asist.add(emp);
     }
 
-    @Override
-    public String toString(){
-        String f = "Lista de asistencia: \n\n";
-        for(int i=0; i<asist.size();i++){
-            f += asist.get(i).toString() + "\n\n";
-        }
-        return f;
+    public ArrayList obtenerAsistencia(){
+        return asist;
     }
 }

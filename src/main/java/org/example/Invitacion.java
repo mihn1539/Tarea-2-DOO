@@ -1,5 +1,6 @@
 package org.example;
 import java.time.Instant;
+import java.util.ArrayList;
 
 public class Invitacion {
     private Instant hora;
@@ -7,13 +8,13 @@ public class Invitacion {
     private Reunion reunion;
 
     public Invitacion(Invitable invitado, Reunion reunion) {
+        this.hora = Instant.now();
         this.invitado = invitado;
         this.reunion = reunion;
-        this.hora = reunion.getHoraPrevista();
     }
 
-    public String getInvitado() {
-        return invitado.toString();
+    public Invitable getInvitado() {
+        return invitado;
     }
 
     public Reunion getReunion() {
@@ -24,8 +25,7 @@ public class Invitacion {
         return hora;
     }
 
-    @Override
-    public String toString(){
-        return "Invitación a reunión organizada por:\n" + reunion.getOrganizador() + "\nPrevista para las: " + getHora() + "\n" + reunion.getUbicacion();
+    public void setEmpleado(Invitable invi){
+        invitado = invi;
     }
 }
