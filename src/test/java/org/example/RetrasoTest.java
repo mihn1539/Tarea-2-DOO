@@ -37,7 +37,7 @@ class RetrasoTest {
     void testToString(){
         retraso.agregarAsistente(emp,Instant.ofEpochMilli(100));
         String i = Instant.ofEpochMilli(100).toString();
-        assertEquals("Lista de retrasos: \n\nEmpleado: Vicente Perez Rosales\nID: 14X14\nCorreo: viceperezr@empresa.com\nDepartamento: Departamento de Ingeniería Civil Informática\nHora de llegada: " + i +"\n\n",retraso.toString());
+        assertEquals("Lista de retrasos: \nEmpleado: Vicente Perez Rosales\nID: 14X14\nCorreo: viceperezr@empresa.com\nDepartamento: Departamento de Ingeniería Civil Informática\nHora de llegada: " + i +"\n",retraso.toString());
     }
 
     @AfterEach

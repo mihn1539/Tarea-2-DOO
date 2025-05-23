@@ -10,13 +10,13 @@ import java.time.Instant;
 import static org.junit.jupiter.api.Assertions.*;
 
 class InvitacionTest {
-    Duration duration;
-    Instant instant;
-    Empleado emp;
-    Departamento dep;
-    Empleado org;
-    Reunion reunion;
-    Invitacion invitacion;
+    private Duration duration;
+    private Instant instant;
+    private Empleado emp;
+    private Departamento dep;
+    private Empleado org;
+    private Reunion reunion;
+    private Invitacion invitacion;
 
     @BeforeEach
     void setUp() {

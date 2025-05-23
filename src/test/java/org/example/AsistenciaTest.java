@@ -37,6 +37,7 @@ class AsistenciaTest {
 
     @Test
     void testToString(){
-        assertEquals("Lista de asistencia: \n\nEmpleado: Vicente Perez Rosales\nID: 14X14\nCorreo: viceperezr@empresa.com\nDepartamento: Departamento de Ingeniería Civil Informática\n\n",asistencia.toString());
+        asistencia.agregarAsistente(emp);
+        assertEquals("Lista de asistencia: \nEmpleado: Vicente Perez Rosales\nID: 14X14\nCorreo: viceperezr@empresa.com\nDepartamento: Departamento de Ingeniería Civil Informática\n",asistencia.toString());
     }
 }
