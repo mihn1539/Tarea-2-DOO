@@ -29,9 +29,9 @@ class RetrasoTest {
 
     @Test
     void testAñadirAsistente() {
-        int i = retraso.asist.size();
+        int i = retraso.asista.size();
         retraso.agregarAsistente(emp,Instant.ofEpochMilli(100));
-        assertEquals(emp.toString() + Instant.ofEpochMilli(100),retraso.asist.get(i).toString() + retraso.horaAtraso.get(i).toString());
+        assertEquals(emp.toString() + Instant.ofEpochMilli(100),retraso.asista.get(i).toString() + retraso.horaAtraso.get(i).toString());
     }
 
     @Test

@@ -5,26 +5,25 @@ import java.time.Duration;
 import java.util.Date;
 
 public abstract class Reunion {
-    private Date fecha;
     protected Instant horaPrevista;
     protected Duration duracionPrevista;
     protected Asistencia asistencia;
     protected Retraso retraso;
     protected tipoReunion tipo;
+
     protected Instant horaInicio;
     protected Instant horaFin;
+
     protected ArrayList<Notas> notas;
     protected Empleado organizador;
     public ArrayList<Invitacion> invitaciones = new ArrayList<>();
 
-    public Reunion(Date dia,Instant hora, Duration duracion, Empleado emp, tipoReunion tipo) {
-        this.fecha = dia;
+    public Reunion(Instant hora, Duration duracion, Empleado emp, tipoReunion tipo) {
         this.horaPrevista = hora;
         this.duracionPrevista = duracion;
         this.organizador = emp;
         this.asistencia = new Asistencia(this);
         this.retraso = new Retraso(this);
-        asistencia.asist.add(emp);
         this.tipo = tipo;
     }
 

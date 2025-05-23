@@ -31,9 +31,9 @@ class AsistenciaTest {
 
     @Test
     void añadirAsistente() {
-        int i = asistencia.asist.size();
+        int i = asistencia.asista.size();
         asistencia.agregarAsistente(org);
-        assertEquals(org.toString(),asistencia.asist.get(i).toString());
+        assertEquals(org.toString(),asistencia.asista.get(i).toString());
     }
 
     @Test
