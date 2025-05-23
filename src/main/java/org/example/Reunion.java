@@ -10,8 +10,8 @@ public abstract class Reunion {
     private Duration duracionPrevista;
     private Instant horaInicio;
     private Instant horaFin;
-    private Asistencia asistencia;
-    private Retraso retraso;
+    public Asistencia asistencia;
+    public Retraso retraso;
     public ArrayList<Invitacion> invitaciones;
     private ArrayList<Notas> notas;
     private Empleado organizador;
@@ -24,6 +24,7 @@ public abstract class Reunion {
         invitaciones = new ArrayList<>();
         this.asistencia = new Asistencia(this);
         this.retraso = new Retraso(this);
+        asistencia.asist.add(emp);
     }
 
     public ArrayList obtenerAsistencia(){

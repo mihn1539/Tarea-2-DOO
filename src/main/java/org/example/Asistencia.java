@@ -14,4 +14,13 @@ public class Asistencia  {
     public void añadirAsistente(Empleado emp) {
         asist.add(emp);
     }
+
+    @Override
+    public String toString(){
+        String f = "Lista de asistencia: \n\n";
+        for(int i=0; i<asist.size();i++){
+            f += asist.get(i).toString() + "\n\n";
+        }
+        return f;
+    }
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 
 public class Retraso extends Asistencia {
-    private ArrayList<Instant> horaAtraso = new ArrayList<>();
+    public ArrayList<Instant> horaAtraso = new ArrayList<>();
 
     public Retraso(Reunion reunion) {
         super(reunion);
@@ -17,11 +17,11 @@ public class Retraso extends Asistencia {
 
     @Override
     public String toString(){
-        String f = "";
+        String f = "Lista de retrasos: \n\n";
         for(int i=0; i<super.asist.size();i++){
-            f += super.asist.get(i).toString() + " Hora de llegada: " + horaAtraso.get(i).toString();
-        }
+            f += super.asist.get(i).toString() + "\nHora de llegada: " + horaAtraso.get(i).toString() + "\n\n";
 
+        }
         return f;
     }
 }

@@ -17,7 +17,6 @@ class RetrasoTest {
     private Empleado emp;
     private Departamento dep;
     private Empleado org;
-    private Invitacion invitacion;
 
     @BeforeEach
     void setUp() {
@@ -25,17 +24,21 @@ class RetrasoTest {
         emp = new Empleado("14X14", "Perez Rosales", "Vicente", "viceperezr@empresa.com",dep);
         org = new Empleado("94X12","Fuentealba Meridio","Leonardo","leonfuentealbam@empresa.icinf.com",dep);
         reu = new ReunionPresencial(new Date(),Instant.ofEpochMilli(100),Duration.ofHours(1),org,"A-9");
-        retraso = new Retraso(reu);
+        retraso = reu.retraso;
     }
 
     @Test
     void testAñadirAsistente() {
-        retraso.añadirAsistente(emp,Instant.now());
+        int i = retraso.asist.size();
+        retraso.añadirAsistente(emp,Instant.ofEpochMilli(100));
+        assertEquals(emp.toString() + Instant.ofEpochMilli(100),retraso.asist.get(i).toString() + retraso.horaAtraso.get(i).toString());
     }
 
     @Test
     void testToString(){
-        retraso.toString();
+        retraso.añadirAsistente(emp,Instant.ofEpochMilli(100));
+        String i = Instant.ofEpochMilli(100).toString();
+        assertEquals("Lista de retrasos: \n\nEmpleado: Vicente Perez Rosales\nID: 14X14\nCorreo: viceperezr@empresa.com\nDepartamento: Departamento de Ingeniería Civil Informática\nHora de llegada: " + i +"\n\n",retraso.toString());
     }
 
     @AfterEach
