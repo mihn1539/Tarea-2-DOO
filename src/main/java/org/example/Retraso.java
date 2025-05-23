@@ -10,8 +10,8 @@ public class Retraso extends Asistencia {
         super(reunion);
     }
 
-    public void agregarAsistente(Empleado emp, Instant hora) {
-        super.agregarAsistente(emp);
+    public void agregarAsistente(Invitado invitado, Instant hora) {
+        super.agregarAsistente(invitado);
         horaAtraso.add(hora);
     }
 

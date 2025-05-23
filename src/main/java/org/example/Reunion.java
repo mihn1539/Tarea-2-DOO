@@ -26,12 +26,12 @@ public abstract class Reunion {
         this.tipo = tipo;
     }
 
-    public void unirseReunion(Empleado emp) {
-        if (emp.invitacion.getReunion().equals(this)) {
+    public void unirseReunion(Invitado invitado) {
+        if (invitado.invitacion.getReunion().equals(this)) {
             if (Instant.now().isAfter(horaPrevista)) {
-                retraso.agregarAsistente(emp);
+                retraso.agregarAsistente(invitado);
             } else {
-                asistencia.agregarAsistente(emp);
+                asistencia.agregarAsistente(invitado);
             }
         } else {
             System.out.println("No tiene la invitacion pertinente a esta reunion.");

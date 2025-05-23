@@ -1,17 +1,17 @@
 package org.example;
 
-public class Externos implements Invitable {
+public class Externos extends Invitado {
     private static String id = "EXT";
     private String apellidos;
     private String nombre;
     private String correo;
-    public Invitacion invitacion;
+
 
     public Externos(String ap, String nomb, String correo){
+        super();
         this.apellidos = ap;
         this.nombre = nomb;
         this.correo = correo;
-        this.invitacion = null;
     }
 
     public String getApellidos(){

@@ -2,15 +2,15 @@ package org.example;
 
 import java.time.Instant;
 
-public class Empleado implements Invitable {
+public class Empleado extends Invitado {
     private String id;
     private String apellidos;
     private String nombre;
     private String correo;
     private Departamento dept;
-    public Invitacion invitacion;
 
     public Empleado(String id,String ap,String nomb, String correo, Departamento dept){
+        super();
         this.id = id;
         this.apellidos = ap;
         this.nombre = nomb;
@@ -18,7 +18,6 @@ public class Empleado implements Invitable {
         if(dept!=null) {
             dept.agregarEmpleado(this);
         }
-        this.invitacion = null;
     }
 
     public String getId(){
