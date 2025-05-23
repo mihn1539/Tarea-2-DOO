@@ -1,6 +1,7 @@
 package org.example;
-import java.time.Instant;
+
 public class Externos implements Invitable {
+    private static String id = "EXT";
     private String apellidos;
     private String nombre;
     private String correo;
@@ -11,6 +12,23 @@ public class Externos implements Invitable {
         this.nombre = nomb;
         this.correo = correo;
         this.invitacion = null;
+    }
+
+    public String getApellidos(){
+        return apellidos;
+    }
+
+    public String getCorreo(){
+        return correo;
+    }
+
+    public String getNombre(){
+        return nombre;
+    }
+
+    @Override
+    public String toString(){
+        return "Externo: " + getNombre() + " " + getApellidos() + "\nID: EXT" + "\nCorreo: " + getCorreo();
     }
 
     @Override

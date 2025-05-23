@@ -1,5 +1,4 @@
 package org.example;
-import java.time.Instant;
 import java.util.ArrayList;
 
 public class Departamento implements Invitable{
@@ -16,6 +15,10 @@ public class Departamento implements Invitable{
 
     public void agregarEmpleado(Empleado emp){
         empleados.add(emp);
+    }
+
+    public String getNombre(){
+        return nombre;
     }
 
     @Override
