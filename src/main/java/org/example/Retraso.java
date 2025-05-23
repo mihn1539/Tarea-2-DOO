@@ -17,9 +17,9 @@ public class Retraso extends Asistencia {
 
     @Override
     public String toString(){
-        String f = "Lista de retrasos: \n\n";
+        String f = "Lista de retrasos: \n";
         for(int i = 0; i<super.asista.size(); i++){
-            f += super.asista.get(i).toString() + "\nHora de llegada: " + horaAtraso.get(i).toString() + "\n\n";
+            f += super.asista.get(i).toString() + "\nHora de llegada: " + horaAtraso.get(i).toString() + "\n";
 
         }
         return f;

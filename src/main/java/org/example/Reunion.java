@@ -13,7 +13,7 @@ public abstract class Reunion {
     protected Instant horaInicio;
     protected Instant horaFin;
 
-    protected ArrayList<Notas> notas;
+    protected ArrayList<Notas> notas = new ArrayList<>();
     protected Empleado organizador;
     public ArrayList<Invitacion> invitaciones = new ArrayList<>();
 
@@ -39,8 +39,8 @@ public abstract class Reunion {
     }
 
     public float calcularTiempoReal() {
-        long duration = Duration.between(horaInicio, horaFin).toMinutes();
-        return (float)duration;
+        float duration = Duration.between(horaInicio, horaFin).toSeconds();
+        return duration/60;
     }
 
     public void crearNota(String nota) {

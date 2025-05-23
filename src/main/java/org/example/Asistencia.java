@@ -21,9 +21,9 @@ public class Asistencia  {
 
     @Override
     public String toString() {
-        String f = "Lista de asistencia: \n\n";
+        String f = "Lista de asistencia: \n";
         for (int i = 0; i < asista.size(); i++) {
-            f += asista.get(i).toString() + "\n\n";
+            f += asista.get(i).toString() + "\n";
         }
         return f;
     }
