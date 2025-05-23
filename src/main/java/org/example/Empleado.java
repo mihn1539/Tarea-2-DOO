@@ -15,8 +15,9 @@ public class Empleado implements Invitable {
         this.apellidos = ap;
         this.nombre = nomb;
         this.correo = correo;
-        this.dept = dept;
-        dept.agregarEmpleado(this);
+        if(dept!=null) {
+            dept.agregarEmpleado(this);
+        }
         this.invitacion = null;
     }
 
@@ -28,8 +29,7 @@ public class Empleado implements Invitable {
     public void invitar(Reunion reunion) {
         Invitacion inv = new Invitacion(this, reunion);
         this.invitacion = inv;
-        inv.getReunion().invitaciones.add(inv);
-        System.out.println("Invitacion enviada a " + nombre + " " + apellidos + " (" + correo + ").");
+        reunion.invitaciones.add(inv);
     }
 
     public String getApellidos(){
