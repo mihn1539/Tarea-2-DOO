@@ -11,7 +11,11 @@ public class Asistencia  {
         asist = new ArrayList<>();
     }
 
-    public void añadirAsistente(Empleado emp) {
+    public void agregarAsistente(Empleado emp) {
         asist.add(emp);
+    }
+
+    public ArrayList obtenerAsistencia(){
+        return asist;
     }
 }

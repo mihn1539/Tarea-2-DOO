@@ -1,77 +1,124 @@
 package org.example;
 import java.util.ArrayList;
-import java.util.Date;
 import java.time.Instant;
 import java.time.Duration;
 
 public abstract class Reunion {
-    private Date fecha;
-    private Instant horaPrevista;
-    private Duration duracionPrevista;
-    private Instant horaInicio;
-    private Instant horaFin;
-    private Asistencia asistencia;
-    private Retraso retraso;
-    public ArrayList<Invitacion> invitaciones;
-    private ArrayList<Notas> notas;
-    private String organizador;
+    protected Instant horaPrevista;
+    protected Duration duracionPrevista;
+    protected Asistencia asistencia;
+    protected Retraso retraso;
+    protected tipoReunion tipo;
 
-    public Reunion(Date fecha, Instant hora, Duration duracion, Empleado emp){
-        this.fecha = fecha;
+    protected Instant horaInicio;
+    protected Instant horaFin;
+
+    protected ArrayList<Notas> notas;
+    protected Empleado organizador;
+    public ArrayList<Invitacion> invitaciones = new ArrayList<>();
+
+    public Reunion(Instant hora, Duration duracion, Empleado emp, tipoReunion tipo) {
         this.horaPrevista = hora;
         this.duracionPrevista = duracion;
-        this.organizador = emp.getId();
-        invitaciones = new ArrayList<>();
+        this.organizador = emp;
         this.asistencia = new Asistencia(this);
         this.retraso = new Retraso(this);
+        this.tipo = tipo;
     }
 
-    public ArrayList obtenerAsistencia(){
-        return null;
+    public void unirseReunion(Empleado emp) {
+        if (emp.invitacion.getReunion().equals(this)) {
+            if (Instant.now().isAfter(horaPrevista)) {
+                retraso.agregarAsistente(emp);
+            } else {
+                asistencia.agregarAsistente(emp);
+            }
+        } else {
+            System.out.println("No tiene la invitacion pertinente a esta reunion.");
+        }
     }
 
-    public ArrayList obtenerAusencias(){
-        return null;
+    public float calcularTiempoReal() {
+        long duration = Duration.between(horaInicio, horaFin).toMinutes();
+        return (float)duration;
     }
 
-    public ArrayList obtenerRetrasos(){
-        return null;
-    }
-
-    public int obtenerTotalAsistencia(){
-        return 0;
-    }
-
-    public float obtenerPorcentajeAsistencia(){
-        return 0;
-    }
-
-    public float calcularTiempoReal(){
-        return 0;
-    }
-
-    public void crearNota(String nota){
+    public void crearNota(String nota) {
         Notas n = new Notas(nota);
         notas.add(n);
     }
 
-    public void iniciar(){
+    public ArrayList obtenerAsistencia(){
+        ArrayList<Object> asist = new ArrayList<>();
+        for(Object e : asistencia.obtenerAsistencia()){
+            asist.add(e);
+        }
+        for(Object e : retraso.obtenerAsistencia()){
+            asist.add(e);
+        }
+        return asist;
+    }
+
+    public ArrayList obtenerAusencias(){
+        ArrayList<Invitable> ausencias = new ArrayList<>();
+        for(Invitacion i : invitaciones){
+            Boolean asistio = false;
+            for(Object e : asistencia.obtenerAsistencia()){
+                if(i.getInvitado().equals(e)){
+                    asistio = true;
+                    break;
+                }
+            }
+            if(!asistio) {
+                for (Object e : retraso.obtenerAsistencia()) {
+                    if (i.getInvitado().equals(e)) {
+                        asistio = true;
+                        break;
+                    }
+                }
+            }
+            if(!asistio){
+                ausencias.add(i.getInvitado());
+            }
+        }
+        return ausencias;
+    }
+
+    public ArrayList obtenerRetrasos(){
+        return retraso.obtenerAsistencia();
+    }
+
+    public int obtenerTotalAsistencia(){
+        return obtenerAsistencia().size();
+    }
+
+    public float obtenerPorcentajeAsistencia(){
+        return (float) (100 * obtenerTotalAsistencia()) / invitaciones.size();
+    }
+
+    public void iniciar() {
         horaInicio = Instant.now();
     }
 
-    public void finalizar(){
+    public void finalizar() {
         horaFin = Instant.now();
     }
 
-    public void unirseReunion(Empleado emp){
-        if(emp.invitacion.getReunion().equals(this)){
-            if(this.horaPrevista.compareTo(Instant.now()) > 0){
-                retraso.añadirAsistente(emp,Instant.now());
-            }else{
-                asistencia.añadirAsistente(emp);
-            }
-        }else {
-            System.out.println("No tiene la invitacion pertinente a esta reunion.");
-        }
+    public abstract String getUbicacion();
+
+    public Instant getHoraPrevista() {
+        return horaPrevista;
+    }
+
+    public Instant getHoraInicio() {
+        return horaInicio;
+    }
+
+    public Instant getHoraFin() {
+        return horaFin;
+    }
+
+    public tipoReunion getTipo() {
+        return tipo;
     }
 }
