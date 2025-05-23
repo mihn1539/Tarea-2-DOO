@@ -19,7 +19,7 @@ public class Externos extends Invitado {
     }
 
     /**
-     * Entrega una representación en texto de los datos del externo.
+     * Metodo heredado de la clase {@link Object}, con <i>@Override</i>. Este transforma en formato {@link String} toda la informacion recopilada en esta clase.
      *
      * @return Cadena de caracteres con los datos del externo.
      */

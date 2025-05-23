@@ -55,7 +55,7 @@ public class Invitacion {
     }
 
     /**
-     * Metodo heredado de la clase {@link Object}, con <i>override</i>. Este transforma en formato {@link String} toda la informacion recopilada en esta clase.
+     * Metodo heredado de la clase {@link Object}, con <i>@Override</i>. Este transforma en formato {@link String} toda la informacion recopilada en esta clase.
      * @return Organizador, hora y ubicacion de la reunion a la cual se referencia.
      * */
     @Override

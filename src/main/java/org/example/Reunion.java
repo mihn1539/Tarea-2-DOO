@@ -10,6 +10,7 @@ import java.time.Duration;
  * relacionadas a la programación y duración de la misma.
  */
 public abstract class Reunion {
+
     /** Fecha y hora prevista de la reunión*/
     protected Instant horaPrevista;
 
@@ -234,7 +235,7 @@ public abstract class Reunion {
     }
 
     /**
-     * Devuelve un informe completo de la reunión en una cadena de texto.
+     * Metodo heredado de la clase {@link Object}, con <i>@Override</i>. Este transforma en formato {@link String} toda la informacion recopilada en esta clase.
      *
      * @return Informe de la reunión.
      */
@@ -268,10 +269,9 @@ public abstract class Reunion {
     /**
      * Genera un archivo de texto con el informe de la reunión.
      * El archivo se guarda en la carpeta predeterminada "informes".
-     *
-     * @param archivo Nombre del archivo de salida.
      */
-    public void generarInforme(String archivo) {
+    public void generarInforme() {
+        String archivo = "informe_" + getHoraFin() + ".txt";
         String carpeta = "informes";
         File direccion = new File(carpeta);
 

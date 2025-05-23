@@ -57,7 +57,7 @@ public class Departamento implements Invitable{
     }
 
     /**
-     * Metodo <b>implementado</b> de la interfaz {@link Invitable}, con <i>override</i>, adaptandose a invitar a todos los empleados pertenecientes al departamento.
+     * Metodo <b>implementado</b> de la interfaz {@link Invitable}, con <i>@Override</i>, adaptandose a invitar a todos los empleados pertenecientes al departamento.
      * @param reunion Reunion a la cual se les invita.
      * */
     @Override
@@ -70,7 +70,7 @@ public class Departamento implements Invitable{
     }
 
     /**
-     * Metodo heredado de la clase {@link Object}, con <i>override</i>. Este transforma en formato {@link String} toda la informacion recopilada en esta clase.
+     * Metodo heredado de la clase {@link Object}, con <i>@Override</i>. Este transforma en formato {@link String} toda la informacion recopilada en esta clase.
      * @return Todos los empleados del departamento con sus respectivos datos.
      * */
     @Override

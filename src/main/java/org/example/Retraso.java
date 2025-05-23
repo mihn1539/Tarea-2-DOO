@@ -31,8 +31,7 @@ public class Retraso extends Asistencia {
     }
 
     /**
-     * Devuelve una representacion en forma de lista de los asistentes que llegaron tarde, incluyendo su nombre,
-     * su correo y la hora de llegada.
+     * Metodo heredado de la clase {@link Object}, con <i>@Override</i>. Este transforma en formato {@link String} toda la informacion recopilada en esta clase..
      *
      * @return Cadena de caracteres con la lista de retrasos.
      */

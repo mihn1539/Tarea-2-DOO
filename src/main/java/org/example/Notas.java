@@ -41,7 +41,7 @@ public class Notas {
     }
 
     /**
-     * Metodo heredado de la clase {@link Object}, con <i>override</i>. Este transforma en formato {@link String} toda la informacion recopilada en esta clase.
+     * Metodo heredado de la clase {@link Object}, con <i>@Override</i>. Este transforma en formato {@link String} toda la informacion recopilada en esta clase.
      * @return hora y contenido de la nota.
      * */
     @Override

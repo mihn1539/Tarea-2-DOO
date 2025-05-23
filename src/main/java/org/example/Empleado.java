@@ -71,7 +71,7 @@ public class Empleado extends Invitado {
     }
 
     /**
-     * Entrega una representación en texto de los datos del empleado.
+     * Metodo heredado de la clase {@link Object}, con <i>@Override</i>. Este transforma en formato {@link String} toda la informacion recopilada en esta clase.
      *
      * @return Cadena de caracteres con los datos del empleado.
      */
