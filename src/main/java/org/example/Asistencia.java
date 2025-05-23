@@ -2,7 +2,7 @@ package org.example;
 import java.util.ArrayList;
 
 public class Asistencia  {
-    private ArrayList<Empleado> asist;
+    public ArrayList<Empleado> asist;
     public Reunion reunion;
 
 
