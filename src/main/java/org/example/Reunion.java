@@ -257,8 +257,17 @@ public abstract class Reunion {
         result += "Hora de termino: " + getHoraFin() + ".\n";
         result += "Duracion total: " + calcularTiempoReal() + "minutos.\n\n";
 
-        result += asistencia.toString();
-        result += retraso.toString();
+        try {
+            result += asistencia.toString();
+        } catch (Exception e) {
+            result += "No hubo asistencias\n";
+        }
+
+        try {
+            result += retraso.toString();
+        } catch (Exception e) {
+            result += "No hubo retrasos\n";
+        }
 
         result += "\nNotas:\n";
         if (notas.isEmpty()) {
