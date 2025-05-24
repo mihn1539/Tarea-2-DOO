@@ -1,36 +1,38 @@
 package org.example;
 
+/**
+ * Representa a una persona con la capacidad de ser invitada a una reunión.
+ * Es ajena a una empresa.
+ * Es heredada de la clase {@link Invitado} .
+ */
 public class Externos extends Invitado {
-    private static String id = "EXT";
-    private String apellidos;
-    private String nombre;
-    private String correo;
 
-
+    /**
+     * Crea una instancia de Externos.
+     *
+     * @param ap Apellidos del externo.
+     * @param nomb Nombre del externo.
+     * @param correo Correo del externo.
+     */
     public Externos(String ap, String nomb, String correo){
-        super();
-        this.apellidos = ap;
-        this.nombre = nomb;
-        this.correo = correo;
+        super(nomb, ap, correo);
     }
 
-    public String getApellidos(){
-        return apellidos;
-    }
-
-    public String getCorreo(){
-        return correo;
-    }
-
-    public String getNombre(){
-        return nombre;
-    }
-
+    /**
+     * Metodo heredado de la clase {@link Object}, con <i>@Override</i>. Este transforma en formato {@link String} toda la informacion recopilada en esta clase.
+     *
+     * @return Cadena de caracteres con los datos del externo.
+     */
     @Override
     public String toString(){
-        return "Externo: " + getNombre() + " " + getApellidos() + "\nID: EXT" + "\nCorreo: " + getCorreo();
+        return "Externo: " + getNombreCompleto() + "\nID: EXT" + "\nCorreo: " + getCorreo();
     }
 
+    /**
+     * Invita al externo a una reunión.
+     *
+     * @param reunion Reunión a la que se invita al invitado.
+     */
     @Override
     public void invitar(Reunion reunion) {
         Invitacion inv = new Invitacion(this, reunion);
