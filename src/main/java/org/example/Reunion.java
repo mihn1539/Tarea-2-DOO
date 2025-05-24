@@ -231,7 +231,7 @@ public abstract class Reunion {
      * @return Información del organizador.
      */
     public String getOrganizador() {
-        return organizador.toString();
+        return organizador.getNombreCompleto();
     }
 
     /**
