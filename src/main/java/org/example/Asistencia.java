@@ -46,12 +46,12 @@ public class Asistencia  {
      * */
     @Override
     public String toString() {
-        String result = "Lista de asistencia: \n\n";
+        String result = "Lista de asistencia: \n";
         if (asista.isEmpty()) {
             result += "- No se registró ninguna asistencia.\n";
         } else {
             for (Invitado inv : asista) {
-                result += "- " + inv.getNombreCompleto() + ". Correo: " + inv.getCorreo() + ".\n\n";
+                result += "- " + inv.getNombreCompleto() + " (Correo: " + inv.getCorreo() + ").\n";
             }
         }
         return result;

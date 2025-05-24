@@ -60,7 +60,7 @@ public class Invitacion {
      * */
     @Override
     public String toString() {
-        return "Invitación a reunión organizada por:" + reunion.getOrganizador() + " prevista para las: " + getHora() + " en " + reunion.getUbicacion();
+        return "Invitación a reunión organizada por " + reunion.getOrganizador() + " prevista para las " + reunion.getHoraPrevista().toString() + " en la sala " + reunion.getUbicacion() + "\n";
     }
 
     /**

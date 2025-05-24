@@ -31,7 +31,7 @@ class InvitacionTest {
 
     @Test
     void testToString(){
-        assertEquals("Invitación a reunión organizada por:\nEmpleado: Leonardo Fuentealba Meridio\nID: 94X12\nCorreo: leonfuentealbam@empresa.icinf.com\nDepartamento: Departamento de Ingeniería Civil Informática\nPrevista para las: 1970-01-01T00:00:00.100Z\nSala: A-9",invitacion.toString());
+        assertEquals("Invitación a reunión organizada por Leonardo Fuentealba Meridio prevista para las " + instant.toString() + " en la sala A-9\n",invitacion.toString());
     }
 
     @AfterEach
