@@ -64,14 +64,12 @@ public abstract class Reunion {
      * @param inv Invitado que se une a la reunión.
      */
     public void unirseReunion(Invitado inv) {
-        if (inv.invitacion.getReunion().equals(this)) {
-            if (Instant.now().isAfter(horaPrevista)) {
-                retraso.agregarAsistente(inv);
-            } else {
-                asistencia.agregarAsistente(inv);
-            }
+        Instant ahora = Instant.now();
+
+        if (horaInicio == null || ahora.isBefore(horaInicio)) {
+            asistencia.agregarAsistente(inv);
         } else {
-            System.out.println("No tiene la invitacion pertinente a esta reunion.");
+            retraso.agregarAsistente(inv, ahora);
         }
     }
 
@@ -81,9 +79,13 @@ public abstract class Reunion {
      * @return Duración real en minutos.
      */
     public float calcularTiempoReal() {
+        if (horaInicio == null || horaFin == null) {
+            return 0;
+        }
         float duration = Duration.between(horaInicio, horaFin).toSeconds();
-        return duration/60;
+        return duration / 60;
     }
+
 
     /**
      * Crea una nota y la guarda en la reunión junto.
@@ -271,11 +273,19 @@ public abstract class Reunion {
      * El archivo se guarda en la carpeta predeterminada "informes".
      */
     public void generarInforme() {
-        String archivo = "informe_" + getHoraFin() + ".txt";
+        if (horaInicio == null) {
+            System.err.println("No se puede generar el informe: la reunión no ha comenzado.");
+            return;
+        } else if (horaFin == null) {
+            System.err.println("No se puede generar el informe: la reunión no ha terminado.");
+            return;
+        }
+
+
+        String archivo = "informe_" + getHoraFin().toString().replaceAll("[:.]", "-") + ".txt";
         String carpeta = "informes";
         File direccion = new File(carpeta);
 
-        // Crea la carpeta si no existe
         if (!direccion.exists()) {
             boolean creada = direccion.mkdirs();
             if (!creada) {
@@ -284,7 +294,6 @@ public abstract class Reunion {
             }
         }
 
-        // Ruta completa al archivo
         File archivoSalida = new File(direccion, archivo);
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivoSalida))) {
