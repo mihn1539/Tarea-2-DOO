@@ -13,7 +13,7 @@ public class Invitacion {
     /**
      * {@link Invitado} a quien va dirigida.
      * */
-    private Invitable invitado;
+    private Invitado invitado;
     /**
      * {@link Reunion} a la cual es invitado.
      * */
@@ -24,7 +24,7 @@ public class Invitacion {
      * @param reunion Reunion a la cual es invitado.
      * @param invitado A quien se le dirige la invitacion.
      * */
-    public Invitacion(Invitable invitado, Reunion reunion) {
+    public Invitacion(Invitado invitado, Reunion reunion) {
         this.hora = Instant.now();
         this.invitado = invitado;
         this.reunion = reunion;
@@ -34,7 +34,7 @@ public class Invitacion {
      * Getter de la propiedad invitado.
      * @return {@link Invitado} a quien se <b>refiere</b> la invitacion.
      * */
-    public Invitable getInvitado() {
+    public Invitado getInvitado() {
         return invitado;
     }
 
@@ -67,7 +67,7 @@ public class Invitacion {
      * Setter de la propiedad invitado.
      * @param invi Nueva persona {@link Invitable} a la cual se dirige la invitacion.
      * */
-    public void setEmpleado(Invitable invi) {
+    public void setEmpleado(Invitado invi) {
         invitado = invi;
     }
 }
