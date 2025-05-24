@@ -46,7 +46,7 @@ class ReunionCompletaTest {
     }
 
     @Test
-    void testReunionCompleta() {
+    void testReunionCompleta() throws NoTieneInvitacion {
         reunion.unirseReunion(emp1);
         reunion.unirseReunion(ext);
 

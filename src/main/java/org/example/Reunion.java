@@ -63,14 +63,18 @@ public abstract class Reunion {
      *
      * @param inv Invitado que se une a la reunión.
      */
-    public void unirseReunion(Invitado inv) {
+    public void unirseReunion(Invitado inv) throws NoTieneInvitacion{
         Instant ahora = Instant.now();
-
-        if (horaInicio == null || ahora.isBefore(horaInicio)) {
-            asistencia.agregarAsistente(inv);
-        } else {
-            retraso.agregarAsistente(inv, ahora);
+        if(inv.invitacion == null || !inv.invitacion.getReunion().equals(this)){
+            throw new NoTieneInvitacion();
+        }else{
+            if (horaInicio == null || ahora.isBefore(horaInicio)) {
+                asistencia.agregarAsistente(inv);
+            } else {
+                retraso.agregarAsistente(inv, ahora);
+            }
         }
+
     }
 
     /**

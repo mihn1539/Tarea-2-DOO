@@ -34,9 +34,18 @@ class ReunionPresencialTest {
     }
 
     @Test
-    void unirseReunion() {
+    void unirseReunion() throws NoTieneInvitacion {
         reunion.unirseReunion(emp);
         assertFalse(reunion.obtenerAsistencia().isEmpty());
+    }
+
+    @Test
+    void unirseReunionSinInvitacion() {
+        Empleado emp1 = new Empleado("16X21","Castillo Gonzalez","Bryan","bryacastillog@empresa.icinf.com",dep);
+        Exception exc = assertThrows(NoTieneInvitacion.class,
+                ()->{
+                    reunion.unirseReunion(emp1);
+                });
     }
 
     @Test
@@ -59,18 +68,18 @@ class ReunionPresencialTest {
     }
 
     @Test
-    void obtenerAsistencia() {
+    void obtenerAsistencia() throws NoTieneInvitacion {
         reunion.unirseReunion(emp);
-        assertEquals("Empleado: Vicente Perez Rosales\nID: 14X14\nCorreo: viceperezr@empresa.com\nDepartamento: Departamento de Ingeniería Civil Informática", reunion.obtenerAsistencia().getFirst().toString());
+        assertEquals("Empleado: Vicente Perez Rosales \nID: 14X14\nCorreo: viceperezr@empresa.com\nDepartamento: Departamento de Ingeniería Civil Informática", reunion.obtenerAsistencia().getFirst().toString());
     }
 
     @Test
     void obtenerAusencias() {
-        assertEquals("Empleado: Vicente Perez Rosales\nID: 14X14\nCorreo: viceperezr@empresa.com\nDepartamento: Departamento de Ingeniería Civil Informática", reunion.obtenerAusencias().getFirst().toString());
+        assertEquals("Empleado: Vicente Perez Rosales \nID: 14X14\nCorreo: viceperezr@empresa.com\nDepartamento: Departamento de Ingeniería Civil Informática", reunion.obtenerAusencias().getFirst().toString());
     }
 
     @Test
-    void obtenerRetrasos() {reunion.iniciar();
+    void obtenerRetrasos() throws NoTieneInvitacion {reunion.iniciar();
         reunion.iniciar();
         try {
             Thread.sleep(2000);
@@ -79,17 +88,17 @@ class ReunionPresencialTest {
             Thread.currentThread().interrupt();
         }
         reunion.unirseReunion(emp);
-        assertEquals("Empleado: Vicente Perez Rosales\nID: 14X14\nCorreo: viceperezr@empresa.com\nDepartamento: Departamento de Ingeniería Civil Informática", reunion.obtenerRetrasos().getFirst().toString());
+        assertEquals("Empleado: Vicente Perez Rosales \nID: 14X14\nCorreo: viceperezr@empresa.com\nDepartamento: Departamento de Ingeniería Civil Informática", reunion.obtenerRetrasos().getFirst().toString());
     }
 
     @Test
-    void obtenerTotalAsistencia() {
+    void obtenerTotalAsistencia() throws NoTieneInvitacion {
         reunion.unirseReunion(emp);
         assertEquals(1,reunion.obtenerTotalAsistencia());
     }
 
     @Test
-    void obtenerPorcentajeAsistencia() {
+    void obtenerPorcentajeAsistencia() throws NoTieneInvitacion {
         reunion.unirseReunion(emp);
         assertEquals(100,reunion.obtenerPorcentajeAsistencia());
     }
