@@ -45,10 +45,10 @@ public class Asistencia  {
      * @return La informacion recopilada de cada empleado asistente.
      * */
     @Override
-    public String toString() {
+    public String toString() throws NoHayAsistencia {
         String result = "Lista de asistencia: \n";
         if (asista.isEmpty()) {
-            result += "- No se registró ninguna asistencia.\n";
+            throw new NoHayAsistencia();
         } else {
             for (Invitado inv : asista) {
                 result += "- " + inv.getNombreCompleto() + " (Correo: " + inv.getCorreo() + ").\n";

@@ -40,4 +40,12 @@ class AsistenciaTest {
         asistencia.agregarAsistente(emp);
         assertEquals("Lista de asistencia: \n- Vicente Perez Rosales (Correo: viceperezr@empresa.com).\n",asistencia.toString());
     }
+
+    @Test
+    void testToStringNoHayRetrasos(){
+        Exception exc = assertThrows(NoHayAsistencia.class,
+                ()->{
+                    asistencia.toString();
+                });
+    }
 }
