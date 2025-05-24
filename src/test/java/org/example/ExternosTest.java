@@ -35,7 +35,7 @@ class ExternosTest {
 
     @Test
     void testToString(){
-        assertEquals("Externo: Alberto Mujica Toledo\nID: EXT\nCorreo: alb.mujit@gmail.com",ext.toString());
+        assertEquals("Externo: Alberto Mujica Toledo \nID: EXT\nCorreo: alb.mujit@gmail.com",ext.toString());
     }
 
     @AfterEach

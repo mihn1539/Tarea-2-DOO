@@ -35,7 +35,7 @@ class EmpleadoTest {
 
     @Test
     void testToString(){
-        assertEquals("Empleado: Vicente Perez Rosales\nID: 14X14\nCorreo: viceperezr@empresa.com\nDepartamento: Departamento de Ingeniería Civil Informática",emp.toString());
+        assertEquals("Empleado: Vicente Perez Rosales \nID: 14X14\nCorreo: viceperezr@empresa.com\nDepartamento: Departamento de Ingeniería Civil Informática",emp.toString());
     }
 
     @AfterEach
