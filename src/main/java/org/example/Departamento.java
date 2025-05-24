@@ -75,9 +75,9 @@ public class Departamento implements Invitable{
      * */
     @Override
     public String toString() {
-        String d = nombre + "\n\n" + "Empleados: \n\n";
+        String d = nombre + "\n\n" + "Empleados:\n\n";
         for(Empleado e : empleados){
-            d += e.toString() + "\n\n";
+            d += e.getNombreCompleto() + "\nID: " + e.getId() + "\nCorreo: " + e.getCorreo() + "\n\n";
         }
         return d;
     }

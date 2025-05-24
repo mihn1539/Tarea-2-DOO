@@ -59,6 +59,14 @@ class DepartamentoTest {
         assertEquals(dep.obtenerCantidadEmpleados(),cantDeEmpleadosConInvitacion);
     }
 
+    @Test
+    void testToString(){
+        assertEquals("Departamento de Ingeniería Civil Informática\n\nEmpleados:\n\n" +
+                "Leonardo Fuentealba Meridio \nID: 94X12\nCorreo: leonfuentealbam@empresa.icinf.com\n\n" +
+                "Jorge Henriquez Rubio \nID: 13X15\nCorreo: jorghenriquezr@empresa.icinf.com\n\nBryan " +
+                "Castillo Gonzalez \nID: 16X21\nCorreo: bryacastillog@empresa.icinf.com\n\n", dep.toString());
+    }
+
     @AfterEach
     void tearDown() {
     }

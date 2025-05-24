@@ -36,7 +36,7 @@ public abstract class Invitado implements Invitable {
      * @return Nombre y apellidos del invitado..
      */
     public String getNombreCompleto() {
-        return nombre + " " + apellidos;
+        return nombre + " " + apellidos + " ";
     }
 
     /**
