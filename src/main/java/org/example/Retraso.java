@@ -36,15 +36,15 @@ public class Retraso extends Asistencia {
      * @return Cadena de caracteres con la lista de retrasos.
      */
     @Override
-    public String toString(){
+    public String toString() throws NoHayRetrasos{
         String result = "Lista de retrasos: \n";
         if (asista.isEmpty()) {
-            result += "- Ningun invitado llego tarde.";
+            throw new NoHayRetrasos();
         } else {
             for(int i = 0; i < super.asista.size(); i++) {
                 Invitado inv = asista.get(i);
                 Instant hora = horaAtraso.get(i);
-                result += "- " + inv.getNombreCompleto() + " (Correo: " + inv.getCorreo() + "). Hora de llegada: " + hora.toString() + "\n";
+                result += "- " + inv.getNombreCompleto() + "(Correo: " + inv.getCorreo() + "). Hora de llegada: " + hora.toString() + "\n";
 
             }
         }

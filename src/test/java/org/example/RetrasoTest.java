@@ -40,6 +40,14 @@ class RetrasoTest {
         assertEquals("Lista de retrasos: \n- Vicente Perez Rosales (Correo: viceperezr@empresa.com). Hora de llegada: " + i +"\n",retraso.toString());
     }
 
+    @Test
+    void testToStringNoHayRetrasos(){
+        Exception exc = assertThrows(NoHayRetrasos.class,
+                ()->{
+            retraso.toString();
+                });
+    }
+
     @AfterEach
     void tearDown() {
     }
